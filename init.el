@@ -22,7 +22,18 @@
 (require 'config-path)
 (require 'init-elpa)
 
+;; Setup `custom-file'.
+(setq custom-file (concat path-local-dir "custom.el"))
 
+;; Load autoloads file
+(unless elpa-bootstrap-p
+  (unless (file-exists-p path-autoloads-file)
+    (error "Autoloads file doesn't exist, please run '%s'"
+           "eru install emacs"))
+  (load path-autoloads-file nil 'nomessage))
+
+;; Core
+(require 'init-ui)
 
 (provide 'init)
 ;;; init.el ends here
