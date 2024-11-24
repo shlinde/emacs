@@ -4,3 +4,12 @@
 lib-private-*.el
 init-private-*.el
 config-private-*.el
+.session
+.uptimes.el
+auto-save-list/
+fontaine-latest-state.eld
+eln-cache/
+history
+org-clock-save.el
+projects
+recentf
