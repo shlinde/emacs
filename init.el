@@ -33,7 +33,18 @@
   (load path-autoloads-file nil 'nomessage))
 
 ;; Core
+(require 'init-env)
+(require 'init-kbd)
+(require 'init-editor)
 (require 'init-ui)
+(require 'init-buffer)
+(require 'init-window)
+
+;; Utilities
+(require 'init-selection)
+(require 'init-project)
+(require 'init-vcs)
+
 
 (provide 'init)
 ;;; init.el ends here

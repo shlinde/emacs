@@ -7,7 +7,7 @@
 
 (require 'config-path)
 
-(defvar elpa-bootstrap-p nil)
+(defvar elpa-bootstrap-p t)
 
 (setq package-user-dir
       (expand-file-name "elpa/" path-packages-dir))
@@ -77,8 +77,6 @@ FN is called with ARGS."
 ;; Critical packages
 (use-package s :ensure (:wait t) :demand t)
 (use-package dash :ensure (:wait t) :demand t)
-(use-package emacsql :ensure t)
-(use-package emacsql-sqlite-builtin :ensure t)
 (use-package gcmh
   :ensure t
   :hook (emacs-startup . (lambda ()

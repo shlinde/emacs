@@ -1,9 +1,104 @@
 ;;; init-ui.el --- UI configurations -*- lexical-binding: t; -*-
-;;;
-;;; Author: Sebastian Hempel Linde <sebastian@hempellinde.com>
-;;;
+;;
+;; Author: Sebastian Hempel Linde <sebastian@hempellinde.com>
+;;
 ;;; Commentary:
 ;;; Code:
+
+(require 'init-env)
+
+;; no startup  screen
+(setq inhibit-startup-screen t)
+
+;; no startup message
+(setq inhibit-startup-message t)
+(setq inhibit-startup-echo-area-message t)
+
+;; initial buffer
+(setq initial-buffer-choice nil)
+
+;; no frame title
+(setq frame-title-format nil)
+
+;; no file dialog
+(setq use-file-dialog nil)
+
+;; no dialog box
+(setq use-dialog-box nil)
+
+;; no empty line indicators
+(setq indicate-empty-lines nil)
+
+;; no cursor in inactive windows
+(setq cursor-in-non-selected-windows nil)
+
+(setq initial-scratch-message nil)
+(setq inhibit-default-init t)
+
+;; start easy with little dependencies to load
+(setq initial-major-mode 'fundamental-mode)
+
+;; yet keep `text-mode' as default major mode
+(setq default-major-mode 'text-mode)
+
+;; maximum font lock
+(setq font-lock-maximum-decoration t)
+
+;; no confirmation for visiting non-existent files
+(setq confirm-nonexistent-file-or-buffer nil)
+
+;; y/n instead of yes/no
+(fset #'yes-or-no-p #'y-or-n-p)
+
+;; no beeping and no blinking please
+(setq ring-bell-function #'ignore)
+(setq visible-bell nil)
+
+;; make sure that trash is not drawn
+(setq indicate-buffer-boundaries nil)
+(setq indicate-empty-lines nil)
+
+(use-package minions
+  :ensure t
+  :init
+  (minions-mode 1))
+
+;; Size of temporary buffers
+(temp-buffer-resize-mode)
+(setq temp-buffer-max-height 8)
+
+;; Minimum window height
+(setq window-min-height 1)
+
+;; don't resize emacs in steps, it looks weird and plays bad with
+;; window manager.
+(setq window-resize-pixelwise t)
+(setq frame-resize-pixelwise t)
+
+;; disable bidirectional text for tiny performance boost
+(setq bidi-display-reordering nil)
+
+;; Extra font-locking
+(use-package font-lock+
+  :ensure (font-lock+ :host github :repo "emacsmirror/font-lock-plus" :wait t)
+  :demand t)
+
+;; no clutter, please!
+(when (fboundp 'scroll-bar-mode)
+  (scroll-bar-mode -1))
+(when (fboundp 'tool-bar-mode)
+  (tool-bar-mode -1))
+
+(use-package fancy-compilation
+  :ensure (:host codeberg :repo "ideasman42/emacs-fancy-compilation")
+  :commands (fancy-compilation-mode)
+  :init
+  (setf fancy-compilation-override-colors nil)
+  (with-eval-after-load 'compile
+    (fancy-compilation-mode)))
+
+;; when theme is right, this thing is good
+(global-hl-line-mode)
 
 (use-package modus-themes
   :ensure t
