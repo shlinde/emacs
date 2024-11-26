@@ -9,7 +9,7 @@
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
 
 ;; Adjust garbage collection during startup
-(setq gc-cons-threeshold (* 128 1024 1024))
+(setq gc-cons-threshold (* 128 1024 1024))
 
 ;; Setup user
 (setq-default user-full-name "Sebastian Hempel Linde"
@@ -56,7 +56,6 @@ Create if not."
     (error "Autoloads file doesn't exist, please run '%s'"
            "eru install emacs"))
   (load path-autoloads-file nil 'nomessage))
-
 
 
 ;; Core
