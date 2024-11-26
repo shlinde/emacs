@@ -133,6 +133,11 @@
   :defer t
   :bind (("C-a" . mwim-beginning)))
 
+(use-package expand-region
+  :ensure t
+  :commands (er/expand-region er/contract-region)
+  :bind (("M-h" . er/expand-region)))
+
 
 (provide 'init-editor)
 ;;; init-editor.el ends here
