@@ -20,7 +20,7 @@
 
 (defconst path-local-dir
   (file-name-as-directory (concat path-home-dir ".cache"))
-  "Path to cache directory")
+  "Path to cache directory.")
 
 (defconst path-etc-dir (concat path-local-dir "etc/")
   "Directory for non-volatile storage.
@@ -35,7 +35,7 @@ external dependencies or long-term shared data")
                             emacs-major-version
                             emacs-minor-version)
                     path-local-dir)
-  "Path to directory containing packages")
+  "Path to directory containing packages.")
 
 (defconst path-projects-dir
   (file-name-as-directory
