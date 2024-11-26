@@ -19,7 +19,7 @@
 (setq-default load-prefer-newer t)
 
 ;; Bootstrap
-(defvar bootstrap-p t
+(defvar bootstrap-p nil
   "First run?")
 
 (require 'config-path)
