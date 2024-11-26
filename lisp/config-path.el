@@ -49,7 +49,5 @@ external dependencies or long-term shared data")
        (concat path-data-dir "memex/")))
   "Root directory for notes.")
 
-
-
 (provide 'config-path)
 ;;; config-path.el ends here

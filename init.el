@@ -19,8 +19,33 @@
 (setq-default load-prefer-newer t)
 
 ;; Bootstrap
+(defvar bootstrap-p t
+  "First run?")
+
 (require 'config-path)
 (require 'init-elpa)
+
+(defun ensure-directory-exists (path)
+  "Ensure that PATH exists as directory.
+Create if not."
+  (unless (file-directory-p path)
+    (make-directory path)))
+
+(defun setup-directories ()
+  "Setup directories needed."
+  (mapc #'ensure-directory-exists
+        `(,path-home-dir
+          ,path-data-dir
+          ,path-emacs-dir
+          ,path-local-dir
+          ,path-etc-dir
+          ,path-cache-dir
+          ,path-packages-dir
+          ,path-projects-dir
+          ,path-memex-directory)))
+
+(when bootstrap-p
+  (setup-directories))
 
 ;; Setup `custom-file'.
 (setq custom-file (concat path-local-dir "custom.el"))
