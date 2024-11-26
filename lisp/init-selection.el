@@ -128,6 +128,7 @@ _TOTAL arguments."
     "ji" '(consult-imenu :which-key "imenu")))
 
 (use-package embark
+  :ensure t
   :bind
   (("M-." . embark-dwim)
    ("C-." . embark-act)))

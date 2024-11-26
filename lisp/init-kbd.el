@@ -8,15 +8,16 @@
 (require 'init-env)
 
 (defmacro leader-def (&rest args)
-  "A wrapper for `general-def'."
+  "A wrapper for `general-def'.
+ARGS is all the keybindings you wan't to make."
 
   (declare (indent defun))
   `(,'general-def ,@args ,@'(:states nil
                              :keymaps 'override
-                             :prefix "M-m"
+                             :prefix "C-c"
                              :prefix-command 'prefix-command
                              :prefix-map 'prefix-map)))
-	   
+
 (use-package general
   :ensure (:wait t)
   :demand t

@@ -32,7 +32,7 @@
 ;; no cursor in inactive windows
 (setq cursor-in-non-selected-windows nil)
 
-(setq initial-scratch-message nil)
+;; (setq initial-scratch-message nil)
 (setq inhibit-default-init t)
 
 ;; start easy with little dependencies to load
@@ -67,9 +67,6 @@
 (temp-buffer-resize-mode)
 (setq temp-buffer-max-height 8)
 
-;; Minimum window height
-(setq window-min-height 1)
-
 ;; don't resize emacs in steps, it looks weird and plays bad with
 ;; window manager.
 (setq window-resize-pixelwise t)
@@ -89,6 +86,21 @@
 (when (fboundp 'tool-bar-mode)
   (tool-bar-mode -1))
 
+;; when theme is right, this thing is good
+(global-hl-line-mode)
+
+;;; Modeline
+(use-package doom-modeline
+  :ensure t
+  :hook (after-init . doom-modeline-mode)
+  :config
+  (display-time-mode)
+  (display-battery-mode)
+  (setq doom-modeline-battery t
+        doom-modeline-time t
+        doom-modeline-env-version t))
+
+;;; Compilation
 (use-package fancy-compilation
   :ensure (:host codeberg :repo "ideasman42/emacs-fancy-compilation")
   :commands (fancy-compilation-mode)
@@ -97,9 +109,7 @@
   (with-eval-after-load 'compile
     (fancy-compilation-mode)))
 
-;; when theme is right, this thing is good
-(global-hl-line-mode)
-
+;;; Theme
 (use-package modus-themes
   :ensure t
   :config
@@ -107,6 +117,7 @@
         modus-themes-bold-constructs t)
   (modus-themes-select 'modus-vivendi))
 
+;;; Fonts
 (use-package fontaine
   :ensure t
   :if env-graphic-p

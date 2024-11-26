@@ -43,10 +43,10 @@ external dependencies or long-term shared data")
        (concat path-data-dir "source/")))
   "Root directory for projects.")
 
-(defconst path-notes-dir
+(defconst path-memex-directory
   (file-name-as-directory
-   (or (getenv "NOTES_HOME")
-       (concat path-data-dir "notes/")))
+   (or (getenv "MEMEX_HOME")
+       (concat path-data-dir "memex/")))
   "Root directory for notes.")
 
 

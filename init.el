@@ -32,6 +32,8 @@
            "eru install emacs"))
   (load path-autoloads-file nil 'nomessage))
 
+
+
 ;; Core
 (require 'init-env)
 (require 'init-kbd)
@@ -44,7 +46,18 @@
 (require 'init-selection)
 (require 'init-project)
 (require 'init-vcs)
+(require 'init-ide)
+(require 'init-file-templates)
+(require 'init-dired)
+(require 'init-pdf)
+(require 'init-tools)
 
+;; Memex
+(require 'init-memex)
+
+;; Languages
+(require 'init-elisp)
+(require 'init-cc)
 
 (provide 'init)
 ;;; init.el ends here

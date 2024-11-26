@@ -7,7 +7,7 @@
 
 (require 'config-path)
 
-(defvar elpa-bootstrap-p t)
+(defvar elpa-bootstrap-p nil)
 
 (setq package-user-dir
       (expand-file-name "elpa/" path-packages-dir))
