@@ -1,6 +1,6 @@
 ;;; init-tools.el --- various tools configurations -*- lexical-binding: t; -*-
 ;;
-;; Author: Boris Buliga <boris@d12frosted.io>
+;; Author: Sebastian  <boris@d12frosted.io>
 
 ;;; Commentary:
 ;;

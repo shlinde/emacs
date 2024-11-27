@@ -10,6 +10,9 @@
 ;;
 ;;; Code:
 
+;; Enable using PLISTS
+(setenv "LSP_USE_PLISTS" "true")
+
 ;; the sooner the better
 (setq package-enable-at-startup nil)
 
