@@ -82,6 +82,7 @@ Create if not."
 ;; Languages
 (require 'init-elisp)
 (require 'init-cc)
+(require 'init-python)
 
 (provide 'init)
 ;;; init.el ends here

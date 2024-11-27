@@ -27,7 +27,9 @@
 
 (use-package eldoc
   :ensure nil
-  :diminish eldoc-mode)
+  :diminish eldoc-mode
+  :config
+  (setopt eldoc-echo-area-use-multiline-p nil))
 
 (use-package flycheck-eldev
   :ensure t

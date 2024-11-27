@@ -75,11 +75,6 @@
 ;; disable bidirectional text for tiny performance boost
 (setq bidi-display-reordering nil)
 
-;; Extra font-locking
-(use-package font-lock+
-  :ensure (font-lock+ :host github :repo "emacsmirror/font-lock-plus" :wait t)
-  :demand t)
-
 ;; no clutter, please!
 (when (fboundp 'scroll-bar-mode)
   (scroll-bar-mode -1))
@@ -87,7 +82,10 @@
   (tool-bar-mode -1))
 
 ;; when theme is right, this thing is good
-(global-hl-line-mode)
+(use-package hl-line
+  :ensure nil
+  :hook ((prog-mode . hl-line-mode)
+         (text-mode . hl-line-mode)))
 
 ;;; Modeline
 (use-package doom-modeline

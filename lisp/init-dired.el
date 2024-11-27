@@ -12,7 +12,7 @@
   :ensure nil
   :init
   (setq
-   dired-listing-switches "-alh"
+   dired-listing-switches "-alFh"
    dired-recursive-copies 'always
    dired-recursive-deletes 'top
    dired-auto-revert-buffer t
