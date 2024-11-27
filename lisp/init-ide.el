@@ -11,6 +11,30 @@
 
 (require 'config-path)
 
+(use-package vterm
+  :ensure t
+  :bind (("C-c t t" . vterm))
+  :config
+  (setopt vterm-kill-buffer-on-exit t
+          vterm-max-scrollback 5000))
+
+(use-package imenu
+  :ensure nil
+  :config
+  (setopt imenu-auto-rescan t
+          org-imenu-depth 3))
+
+(use-package treesit-auto
+  :ensure t
+  :custom
+  (treesit-auto-install 'prompt)
+  :config
+  (delete 'c treesit-auto-langs)
+  (delete 'cpp treesit-auto-langs)
+  (global-treesit-auto-mode))
+
+(setq-default treesit-font-lock-level 4)
+
 (use-package company
   :ensure t
   :defer 2
