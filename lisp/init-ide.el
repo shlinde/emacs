@@ -11,12 +11,20 @@
 
 (require 'config-path)
 
-(use-package vterm
-  :ensure t
-  :bind (("C-c t t" . vterm))
+(use-package eat
+  :ensure '(eat :type git
+            :host codeberg
+            :repo "akib/emacs-eat"
+            :files ("*.el" ("term" "term/*.el") "*.texi"
+                    "*.ti" ("terminfo/e" "terminfo/e/*")
+                    ("terminfo/65" "terminfo/65/*")
+                    ("integration" "integration/*")
+                    (:exclude ".dir-locals.el" "*-tests.el")))
+  :bind (("C-x p t" . eat-project)
+         ("C-c t t" . eat)))
   :config
-  (setopt vterm-kill-buffer-on-exit t
-          vterm-max-scrollback 5000))
+  (setopt eat-enable-shell-prompt-annotation nil))
+
 
 (use-package imenu
   :ensure nil
