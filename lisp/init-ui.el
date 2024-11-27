@@ -99,13 +99,13 @@
         doom-modeline-env-version t))
 
 ;;; Compilation
-(use-package fancy-compilation
-  :ensure (:host codeberg :repo "ideasman42/emacs-fancy-compilation")
-  :commands (fancy-compilation-mode)
-  :init
-  (setf fancy-compilation-override-colors nil)
-  (with-eval-after-load 'compile
-    (fancy-compilation-mode)))
+;;(use-package fancy-compilation
+;;  :ensure (:host codeberg :repo "ideasman42/emacs-fancy-compilation")
+;;  :commands (fancy-compilation-mode)
+;;  :init
+;;  (setf fancy-compilation-override-colors nil)
+;;  (with-eval-after-load 'compile
+;;    (fancy-compilation-mode)))
 
 ;;; Theme
 (use-package modus-themes
