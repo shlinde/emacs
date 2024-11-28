@@ -22,8 +22,6 @@
                     (:exclude ".dir-locals.el" "*-tests.el")))
   :bind (("C-x p t" . eat-project)
          ("C-c t t" . eat)))
-  :config
-  (setopt eat-enable-shell-prompt-annotation nil))
 
 
 (use-package imenu
