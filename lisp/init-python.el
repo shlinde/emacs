@@ -40,6 +40,7 @@
     (with-eval-after-load 'pyvenv
       (pyvenv-activate venv_path))
     (with-eval-after-load 'lsp-mode
+      (require 'lsp-pyright)
       (lsp))))
 
 (use-package python
@@ -55,10 +56,7 @@
 
 (use-package lsp-pyright
   :ensure t
-  :custom (lsp-pyright-langserver-command "basedpyright") ;; or basedpyright
-  :hook (python-mode . (lambda ()
-                          (require 'lsp-pyright)
-                          (lsp))))  ; or lsp-deferred
+  :custom (lsp-pyright-langserver-command "basedpyright")) ;; or basedpyright
 
 (provide 'init-python)
 ;;; init-python.el ends here

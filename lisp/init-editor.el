@@ -26,6 +26,10 @@
 (setq-default indent-tabs-mode nil)
 (setq-default tab-always-indent t)
 
+;; Delete highlighted text when writing
+(use-package delsel
+  :ensure nil
+  :hook (after-init . delete-selection-mode))
 
 
 ;; electric everything (but there must be a way to disable it)
